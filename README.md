@@ -14,10 +14,10 @@ not conflict with other ChiliPeppr widgets.
 | ID                    | com-zipwhip-widget-texterator |
 | Name                  | Widget / Texterator |
 | Description           | A widget for controlling the Zipwhip Texterator. |
-| chilipeppr.load() URL | http://raw.githubusercontent.com/chilipeppr/widget-texterator/master/auto-generated-widget.html |
-| Edit URL              | http://ide.c9.io/chilipeppr/widget-texterator |
-| Github URL            | http://github.com/chilipeppr/widget-texterator |
-| Test URL              | https://preview.c9users.io/chilipeppr/widget-texterator/widget.html |
+| chilipeppr.load() URL | http://raw.githubusercontent.com/chilipeppr/widget-awsmqtt/master/auto-generated-widget.html |
+| Edit URL              | http://ide.c9.io/chilipeppr/awsmqtt |
+| Github URL            | http://github.com/chilipeppr/widget-awsmqtt |
+| Test URL              | https://preview.c9users.io/chilipeppr/awsmqtt/widget.html |
 
 ## Example Code for chilipeppr.load() Statement
 
@@ -33,7 +33,7 @@ $("body").append('<' + 'div id="myDivComZipwhipWidgetTexterator"><' + '/div>');
 
 chilipeppr.load(
   "#myDivComZipwhipWidgetTexterator",
-  "http://raw.githubusercontent.com/chilipeppr/widget-texterator/master/auto-generated-widget.html",
+  "http://raw.githubusercontent.com/chilipeppr/widget-awsmqtt/master/auto-generated-widget.html",
   function() {
     // Callback after widget loaded into #myDivComZipwhipWidgetTexterator
     // Now use require.js to get reference to instantiated widget
@@ -132,7 +132,7 @@ The table below shows, in order, the methods and properties inside the widget/el
           </tr>
       </thead>
       <tbody>
-      <tr valign="top"><td>id</td><td>string</td><td>"com-zipwhip-widget-texterator"<br><br>The ID of the widget. You must define this and make it unique.</td></tr><tr valign="top"><td>name</td><td>string</td><td>"Widget / Texterator"</td></tr><tr valign="top"><td>desc</td><td>string</td><td>"A widget for controlling the Zipwhip Texterator."</td></tr><tr valign="top"><td>url</td><td>string</td><td>"http://raw.githubusercontent.com/chilipeppr/widget-texterator/master/auto-generated-widget.html"</td></tr><tr valign="top"><td>fiddleurl</td><td>string</td><td>"http://ide.c9.io/chilipeppr/widget-texterator"</td></tr><tr valign="top"><td>githuburl</td><td>string</td><td>"http://github.com/chilipeppr/widget-texterator"</td></tr><tr valign="top"><td>testurl</td><td>string</td><td>"http://widget-texterator-chilipeppr.c9users.io/widget.html"</td></tr><tr valign="top"><td>publish</td><td>object</td><td>Please see docs above.<br><br>Define the publish signals that this widget/element owns or defines so that
+      <tr valign="top"><td>id</td><td>string</td><td>"com-zipwhip-widget-texterator"<br><br>The ID of the widget. You must define this and make it unique.</td></tr><tr valign="top"><td>name</td><td>string</td><td>"Widget / Texterator"</td></tr><tr valign="top"><td>desc</td><td>string</td><td>"A widget for controlling the Zipwhip Texterator."</td></tr><tr valign="top"><td>url</td><td>string</td><td>"http://raw.githubusercontent.com/chilipeppr/widget-awsmqtt/master/auto-generated-widget.html"</td></tr><tr valign="top"><td>fiddleurl</td><td>string</td><td>"http://ide.c9.io/chilipeppr/awsmqtt"</td></tr><tr valign="top"><td>githuburl</td><td>string</td><td>"http://github.com/chilipeppr/widget-awsmqtt"</td></tr><tr valign="top"><td>testurl</td><td>string</td><td>"http://awsmqtt-chilipeppr.c9users.io/widget.html"</td></tr><tr valign="top"><td>publish</td><td>object</td><td>Please see docs above.<br><br>Define the publish signals that this widget/element owns or defines so that
 other widgets know how to subscribe to them and what they do.</td></tr><tr valign="top"><td>subscribe</td><td>object</td><td>Please see docs above.<br><br>Define the subscribe signals that this widget/element owns or defines so that
 other widgets know how to subscribe to them and what they do.</td></tr><tr valign="top"><td>foreignPublish</td><td>object</td><td>Please see docs above.<br><br>Document the foreign publish signals, i.e. signals owned by other widgets
 or elements, that this widget/element publishes to.</td></tr><tr valign="top"><td>foreignSubscribe</td><td>object</td><td>Please see docs above.<br><br>Document the foreign subscribe signals, i.e. signals owned by other widgets
