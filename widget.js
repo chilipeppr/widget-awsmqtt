@@ -59,6 +59,8 @@ cprequire_test(["inline:com-zipwhip-widget-texterator"], function(myWidget) {
     //$('#' + myWidget.id).css('background', 'none');
     $('#' + myWidget.id).css('width', '420px');
     $('body').prepend('<div id="3dviewer"></div>');
+    
+    /*
     chilipeppr.load(
       "#3dviewer",
       "http://raw.githubusercontent.com/chilipeppr/widget-3dviewer/master/auto-generated-widget.html",
@@ -174,6 +176,7 @@ cprequire_test(["inline:com-zipwhip-widget-texterator"], function(myWidget) {
         );
       }
     );
+    */
     
     $('#' + myWidget.id).css('margin', '20px');
     $('title').html(myWidget.name);
