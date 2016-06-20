@@ -1,9 +1,9 @@
-# com-zipwhip-widget-texterator
-A widget for controlling the Zipwhip Texterator.
+# com-zipwhip-widget-awsmqtt
+A widget for interfacing with Amazon's MQTT service.
 
 ![alt text](screenshot.png "Screenshot")
 
-## ChiliPeppr Widget / Texterator
+## ChiliPeppr Widget / AWS MQTT
 
 All ChiliPeppr widgets/elements are defined using cpdefine() which is a method
 that mimics require.js. Each defined object must have a unique ID so it does
@@ -11,9 +11,9 @@ not conflict with other ChiliPeppr widgets.
 
 | Item                  | Value           |
 | -------------         | ------------- | 
-| ID                    | com-zipwhip-widget-texterator |
-| Name                  | Widget / Texterator |
-| Description           | A widget for controlling the Zipwhip Texterator. |
+| ID                    | com-zipwhip-widget-awsmqtt |
+| Name                  | Widget / AWS MQTT |
+| Description           | A widget for interfacing with Amazon's MQTT service. |
 | chilipeppr.load() URL | http://raw.githubusercontent.com/chilipeppr/widget-awsmqtt/master/auto-generated-widget.html |
 | Edit URL              | http://ide.c9.io/chilipeppr/awsmqtt |
 | Github URL            | http://github.com/chilipeppr/widget-awsmqtt |
@@ -29,20 +29,20 @@ back the instance of it.
 
 ```javascript
 // Inject new div to contain widget or use an existing div with an ID
-$("body").append('<' + 'div id="myDivComZipwhipWidgetTexterator"><' + '/div>');
+$("body").append('<' + 'div id="myDivComZipwhipWidgetAwsmqtt"><' + '/div>');
 
 chilipeppr.load(
-  "#myDivComZipwhipWidgetTexterator",
+  "#myDivComZipwhipWidgetAwsmqtt",
   "http://raw.githubusercontent.com/chilipeppr/widget-awsmqtt/master/auto-generated-widget.html",
   function() {
-    // Callback after widget loaded into #myDivComZipwhipWidgetTexterator
+    // Callback after widget loaded into #myDivComZipwhipWidgetAwsmqtt
     // Now use require.js to get reference to instantiated widget
     cprequire(
       ["inline:com-zipwhip-widget-texterator"], // the id you gave your widget
-      function(myObjComZipwhipWidgetTexterator) {
+      function(myObjComZipwhipWidgetAwsmqtt) {
         // Callback that is passed reference to the newly loaded widget
-        console.log("Widget / Texterator just got loaded.", myObjComZipwhipWidgetTexterator);
-        myObjComZipwhipWidgetTexterator.init();
+        console.log("Widget / AWS MQTT just got loaded.", myObjComZipwhipWidgetAwsmqtt);
+        myObjComZipwhipWidgetAwsmqtt.init();
       }
     );
   }
@@ -98,7 +98,7 @@ To better understand how ChiliPeppr's subscribe() method works see amplify.js's 
           </tr>
       </thead>
       <tbody>
-      <tr valign="top"><td>/com-zipwhip-widget-texterator/com-chilipeppr-widget-3dviewer/request3dObject</td><td>This gives us back the 3d object from the 3d viewer so we can add Three.js objects to it.</td></tr><tr valign="top"><td>/com-zipwhip-widget-texterator/com-chilipeppr-widget-recvtext/send</td><td>We send texts via this publish. The payload is like {body: "my text msg body", to: "313-555-1212"}</td></tr>    
+      <tr valign="top"><td>/com-zipwhip-widget-awsmqtt/com-chilipeppr-widget-3dviewer/request3dObject</td><td>This gives us back the 3d object from the 3d viewer so we can add Three.js objects to it.</td></tr><tr valign="top"><td>/com-zipwhip-widget-awsmqtt/com-chilipeppr-widget-recvtext/send</td><td>We send texts via this publish. The payload is like {body: "my text msg body", to: "313-555-1212"}</td></tr>    
       </tbody>
   </table>
 
@@ -115,7 +115,7 @@ To better understand how ChiliPeppr's publish() method works see amplify.js's do
           </tr>
       </thead>
       <tbody>
-      <tr valign="top"><td>/com-zipwhip-widget-texterator/com-chilipeppr-widget-3dviewer/recv3dObject</td><td>By subscribing to this we get the callback when we /request3dObject and thus we can grab the reference to the 3d object from the 3d viewer and do things like addScene() to it with our Three.js objects.</td></tr><tr valign="top"><td>/com-zipwhip-widget-texterator/com-chilipeppr-widget-recvtext/recv</td><td>We watch for incoming texts so we can trigger the Texterator.</td></tr>    
+      <tr valign="top"><td>/com-zipwhip-widget-awsmqtt/com-chilipeppr-widget-3dviewer/recv3dObject</td><td>By subscribing to this we get the callback when we /request3dObject and thus we can grab the reference to the 3d object from the 3d viewer and do things like addScene() to it with our Three.js objects.</td></tr><tr valign="top"><td>/com-zipwhip-widget-awsmqtt/com-chilipeppr-widget-recvtext/recv</td><td>We watch for incoming texts so we can trigger the Texterator.</td></tr>    
       </tbody>
   </table>
 
@@ -132,7 +132,7 @@ The table below shows, in order, the methods and properties inside the widget/el
           </tr>
       </thead>
       <tbody>
-      <tr valign="top"><td>id</td><td>string</td><td>"com-zipwhip-widget-texterator"<br><br>The ID of the widget. You must define this and make it unique.</td></tr><tr valign="top"><td>name</td><td>string</td><td>"Widget / Texterator"</td></tr><tr valign="top"><td>desc</td><td>string</td><td>"A widget for controlling the Zipwhip Texterator."</td></tr><tr valign="top"><td>url</td><td>string</td><td>"http://raw.githubusercontent.com/chilipeppr/widget-awsmqtt/master/auto-generated-widget.html"</td></tr><tr valign="top"><td>fiddleurl</td><td>string</td><td>"http://ide.c9.io/chilipeppr/awsmqtt"</td></tr><tr valign="top"><td>githuburl</td><td>string</td><td>"http://github.com/chilipeppr/widget-awsmqtt"</td></tr><tr valign="top"><td>testurl</td><td>string</td><td>"http://awsmqtt-chilipeppr.c9users.io/widget.html"</td></tr><tr valign="top"><td>publish</td><td>object</td><td>Please see docs above.<br><br>Define the publish signals that this widget/element owns or defines so that
+      <tr valign="top"><td>id</td><td>string</td><td>"com-zipwhip-widget-awsmqtt"<br><br>The ID of the widget. You must define this and make it unique.</td></tr><tr valign="top"><td>name</td><td>string</td><td>"Widget / AWS MQTT"</td></tr><tr valign="top"><td>desc</td><td>string</td><td>"A widget for interfacing with Amazon's MQTT service."</td></tr><tr valign="top"><td>url</td><td>string</td><td>"http://raw.githubusercontent.com/chilipeppr/widget-awsmqtt/master/auto-generated-widget.html"</td></tr><tr valign="top"><td>fiddleurl</td><td>string</td><td>"http://ide.c9.io/chilipeppr/awsmqtt"</td></tr><tr valign="top"><td>githuburl</td><td>string</td><td>"http://github.com/chilipeppr/widget-awsmqtt"</td></tr><tr valign="top"><td>testurl</td><td>string</td><td>"http://awsmqtt-chilipeppr.c9users.io/widget.html"</td></tr><tr valign="top"><td>publish</td><td>object</td><td>Please see docs above.<br><br>Define the publish signals that this widget/element owns or defines so that
 other widgets know how to subscribe to them and what they do.</td></tr><tr valign="top"><td>subscribe</td><td>object</td><td>Please see docs above.<br><br>Define the subscribe signals that this widget/element owns or defines so that
 other widgets know how to subscribe to them and what they do.</td></tr><tr valign="top"><td>foreignPublish</td><td>object</td><td>Please see docs above.<br><br>Document the foreign publish signals, i.e. signals owned by other widgets
 or elements, that this widget/element publishes to.</td></tr><tr valign="top"><td>foreignSubscribe</td><td>object</td><td>Please see docs above.<br><br>Document the foreign subscribe signals, i.e. signals owned by other widgets
