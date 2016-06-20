@@ -53,8 +53,21 @@
         </div>
         <div class="panel-body">
 
+            <div class="input-group">
+              <div class="input-group-addon">Pool ID</div>
+              <input type="text" class="form-control txt-poolid" placeholder="Paste Pool ID Here">
+            </div>
+            <button type="submit" class="btn btn-primary">Start MQTT</button>
+
         </div>
         
+        <div style="padding:0 20px 20px 20px;">
+            This widget will publish a signal when an incoming message from AWS MQTT occurs:<br>
+            <pre><code>chilipeppr.publish(
+    "/com-zipwhip-widget-awsmqtt/onmessage", 
+    topic, payload.toString());</code></pre>
+        </div>
+
 </body>
 
 </html>

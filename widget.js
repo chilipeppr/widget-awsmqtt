@@ -28,6 +28,8 @@ requirejs.config({
         // Make sure you DO NOT put the .js at the end of the URL
         // SmoothieCharts: '//smoothiecharts.org/smoothie',
         Three: '//i2dcui.appspot.com/geturl?url=http://threejs.org/build/three.js',
+        AwsIot: '//i2dcui.appspot.com/slingshot?url=https://raw.githubusercontent.com/chilipeppr/widget-awsmqtt/master/aws-iot-sdk-browser-bundle.js',
+        AwsIot2: '//i2dcui.appspot.com/slingshot?url=https://raw.githubusercontent.com/chilipeppr/widget-awsmqtt/master/bundle.js',
     },
     shim: {
         // See require.js docs for how to define dependencies that
@@ -60,134 +62,16 @@ cprequire_test(["inline:com-zipwhip-widget-awsmqtt"], function(myWidget) {
     $('#' + myWidget.id).css('width', '420px');
     // $('body').prepend('<div id="3dviewer"></div>');
     
-    /*
-    chilipeppr.load(
-      "#3dviewer",
-      "http://raw.githubusercontent.com/chilipeppr/widget-3dviewer/master/auto-generated-widget.html",
-      function() {
-        cprequire(['inline:com-chilipeppr-widget-3dviewer'], function (threed) {
-            threed.init({
-                doMyOwnDragDrop: true
-            });
-            
-            // hide toolbar for room
-            $('#com-chilipeppr-widget-3dviewer .panel-heading').addClass("hidden");
-            
-            // only init eagle widget once 3d is loaded
-            // init my widget
-            // myWidget.init();
-            myWidget.init({silent:true});
-        });
-    });
-
-    // load flash message
-    $('body').prepend('<div id="testDivForFlashMessageWidget"></div>');
-    chilipeppr.load(
-        "#testDivForFlashMessageWidget",
-        "http://fiddle.jshell.net/chilipeppr/90698kax/show/light/",
-        function() {
-            console.log("mycallback got called after loading flash msg module");
-            cprequire(["inline:com-chilipeppr-elem-flashmsg"], function(fm) {
-                //console.log("inside require of " + fm.id);
-                fm.init();
-            });
-        }
-    );
-    
-    $("body").append('<div id="addonWidgets" style="position:absolute;width:420px;left:20px;"></div>');
-    
-    // Texterator widget
-    $("#addonWidgets").append('<' + 'div id="myDivWidgetRecvtext" ><' + '/div>');
-    
-    chilipeppr.load(
-      "#myDivWidgetRecvtext",
-      "http://raw.githubusercontent.com/chilipeppr/widget-recvtext/master/auto-generated-widget.html",
-      function() {
-        // Callback after widget loaded into #myDivWidgetRecvtext
-        // Now use require.js to get reference to instantiated widget
-        cprequire(
-          ["inline:com-chilipeppr-widget-recvtext"], // the id you gave your widget
-          function(myObjWidgetRecvtext) {
-            // Callback that is passed reference to the newly loaded widget
-            console.log("Widget / Zipwhip Receive Text just got loaded.", myObjWidgetRecvtext);
-            myObjWidgetRecvtext.init();
-          }
-        );
-      }
-    );
-    
-    // Inject SPJS
-    $("#addonWidgets").append('<' + 'div id="myDivWidgetSerialport" ><' + '/div>');
-    
-    chilipeppr.load(
-      "#myDivWidgetSerialport",
-      "http://raw.githubusercontent.com/chilipeppr/widget-spjs/master/auto-generated-widget.html",
-      function() {
-        // Callback after widget loaded into #myDivWidgetSerialport
-        // Now use require.js to get reference to instantiated widget
-        cprequire(
-          ["inline:com-chilipeppr-widget-serialport"], // the id you gave your widget
-          function(myObjWidgetSerialport) {
-            // Callback that is passed reference to the newly loaded widget
-            console.log("Widget / Serial Port JSON Server just got loaded.", myObjWidgetSerialport);
-            myObjWidgetSerialport.init({isSingleSelectMode: true});
-          }
-        );
-      }
-    );
-    
-    // Inject Font2Gcode
-    // Inject new div to contain widget or use an existing div with an ID
-    $("#addonWidgets").append('<' + 'div id="myDivComZipwhipWidgetFont2gcode"><' + '/div>');
-    
-    chilipeppr.load(
-      "#myDivComZipwhipWidgetFont2gcode",
-      "http://raw.githubusercontent.com/chilipeppr/widget-font2gcode/master/auto-generated-widget.html",
-      function() {
-        // Callback after widget loaded into #myDivComZipwhipWidgetFont2gcode
-        // Now use require.js to get reference to instantiated widget
-        cprequire(
-          ["inline:com-zipwhip-widget-font2gcode"], // the id you gave your widget
-          function(myObjComZipwhipWidgetFont2gcode) {
-            // Callback that is passed reference to the newly loaded widget
-            console.log("Widget / Font2Gcode just got loaded.", myObjComZipwhipWidgetFont2gcode);
-            myObjComZipwhipWidgetFont2gcode.init({silent:true});
-          }
-        );
-      }
-    );
-    
-    // Inject Gcode widget so we can play gcode
-    $("#addonWidgets").append('<' + 'div id="myDivWidgetGcode"><' + '/div>');
-    
-    chilipeppr.load(
-      "#myDivWidgetGcode",
-      "http://raw.githubusercontent.com/chilipeppr/widget-gcodelist/master/auto-generated-widget.html",
-      function() {
-        // Callback after widget loaded into #myDivWidgetGcode
-        // Now use require.js to get reference to instantiated widget
-        cprequire(
-          ["inline:com-chilipeppr-widget-gcode"], // the id you gave your widget
-          function(myObjWidgetGcode) {
-            // Callback that is passed reference to the newly loaded widget
-            console.log("Widget / Gcode v3 just got loaded.", myObjWidgetGcode);
-            myObjWidgetGcode.init();
-          }
-        );
-      }
-    );
-    */
-    
     $('#' + myWidget.id).css('margin', '20px');
     $('title').html(myWidget.name);
     // $('body').css("position", "relative");
-    
+    myWidget.init();
     
 
 } /*end_test*/ );
 
 // This is the main definition of your widget. Give it a unique name.
-cpdefine("inline:com-zipwhip-widget-awsmqtt", ['Three', "chilipeppr_ready",  /* other dependencies here */ ], function() {
+cpdefine("inline:com-zipwhip-widget-awsmqtt", [ "chilipeppr_ready", 'AwsIot' /* other dependencies here */ ], function() {
     return {
         /**
          * The ID of the widget. You must define this and make it unique.
@@ -258,11 +142,282 @@ cpdefine("inline:com-zipwhip-widget-awsmqtt", ['Three', "chilipeppr_ready",  /* 
 
 
             this.btnSetup();
+            // this.startMqtt();
+            this.initMqtt();
+            console.log("window after startMqtt", window);
             
             console.log("I am done being initted.");
         },
-
-
+        
+        poolid: null, // set poolid from localstorage so we don't store this in the code
+        initMqtt: function() {
+            // txt-poolid
+            
+            // See if Pool ID exists in localstorage, if so populate and startMqtt()
+            this.poolid = localStorage.getItem(this.id + "/poolid");
+            if (this.poolid && this.poolid.length > 0) {
+                // we have a pool id
+                $('#' + this.id + ' .txt-poolid').val(this.poolid);
+                this.startMqtt(this.poolid);
+            } else {
+                // there is no pool id
+                console.log("no pool id yet. need admin to paste.");
+            }
+            
+            // When Pool ID changes by user, store it in localstorage
+            $('#' + this.id + ' .txt-poolid').change(this.onPoolIdChange.bind(this));
+            
+        },
+        onPoolIdChange: function(evt) {
+            var el = $('#' + this.id + ' .txt-poolid');
+            console.log("onPoolIdChange", el.val());
+            localStorage.setItem(this.id + "/poolid", el.val());
+            this.poolid = el.val();
+        },
+        startMqtt: function(poolid) {
+            window.punycode = {};
+            window.punycode.toASCII = function(mystr) {
+                return mystr;
+            }
+            console.log("window:", window);
+            // console.log("Url.prototype.parse", Url.prototype.parse);
+            (function e(t, n, r) {
+                function s(o, u) {
+                    if (!n[o]) {
+                        if (!t[o]) {
+                            var a = typeof require == "function" && require;
+                            if (!u && a) return a(o, !0);
+                            if (i) return i(o, !0);
+                            var f = new Error("Cannot find module '" + o + "'");
+                            throw f.code = "MODULE_NOT_FOUND", f
+                        }
+                        var l = n[o] = {
+                            exports: {}
+                        };
+                        t[o][0].call(l.exports, function(e) {
+                            var n = t[o][1][e];
+                            return s(n ? n : e)
+                        }, l, l.exports, e, t, n, r)
+                    }
+                    return n[o].exports
+                }
+                var i = typeof require == "function" && require;
+                for (var o = 0; o < r.length; o++) s(r[o]);
+                return s
+            })({
+                1: [function(require, module, exports) {
+                    /*
+                     * Copyright 2015-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+                     *
+                     * Licensed under the Apache License, Version 2.0 (the "License").
+                     * You may not use this file except in compliance with the License.
+                     * A copy of the License is located at
+                     *
+                     *  http://aws.amazon.com/apache2.0
+                     *
+                     * or in the "license" file accompanying this file. This file is distributed
+                     * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+                     * express or implied. See the License for the specific language governing
+                     * permissions and limitations under the License.
+                     */
+        
+                    /*
+                     * NOTE: You must set the following string constants prior to running this
+                     * example application.
+                     */
+                     console.log("about to set awsConfiguration with poolid:", poolid);
+                    var awsConfiguration = {
+                        poolId: poolid, //'COGNITO IDENTITY POOL ID', // e.g. 'us-east-1:ba776ba-2af4-4b989-a0091-44933382772'
+                        region: 'us-east-1' //'REGION GOES HERE' // e.g. 'us-east-1'
+                    };
+                    console.log("awsConfiguration:", awsConfiguration);
+                    module.exports = awsConfiguration;
+        
+                }, {}],
+                2: [function(require, module, exports) {
+                    /*
+                     * Copyright 2015-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+                     *
+                     * Licensed under the Apache License, Version 2.0 (the "License").
+                     * You may not use this file except in compliance with the License.
+                     * A copy of the License is located at
+                     *
+                     *  http://aws.amazon.com/apache2.0
+                     *
+                     * or in the "license" file accompanying this file. This file is distributed
+                     * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+                     * express or implied. See the License for the specific language governing
+                     * permissions and limitations under the License.
+                     */
+        
+                    //
+                    // Instantiate the AWS SDK and configuration objects.  The AWS SDK for 
+                    // JavaScript (aws-sdk) is used for Cognito Identity/Authentication, and 
+                    // the AWS IoT SDK for JavaScript (aws-iot-device-sdk) is used for the
+                    // WebSocket connection to AWS IoT and device shadow APIs.
+                    // 
+                    var AWS = require('aws-sdk');
+                    var AWSIoTData = require('aws-iot-device-sdk');
+                    var AWSConfiguration = require('./aws-configuration.js');
+        
+                    console.log('Loaded AWS SDK for JavaScript and AWS IoT SDK for Node.js');
+                    console.log("AWS:", AWS, "AWSIoTData:", AWSIoTData);
+                    console.log("AWSConfiguration:", AWSConfiguration);
+        
+                    var kegTopic = 'devday/test/keg';
+        
+                    //
+                    // Create a client id to use when connecting to AWS IoT.
+                    //
+                    var clientId = 'keg-app-' + (Math.floor((Math.random() * 100000) + 1));
+        
+                    //
+                    // Initialize our configuration.
+                    //
+                    AWS.config.region = AWSConfiguration.region;
+        
+                    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+                        IdentityPoolId: AWSConfiguration.poolId
+                    });
+        
+                    //
+                    // Create the AWS IoT device object.  Note that the credentials must be 
+                    // initialized with empty strings; when we successfully authenticate to
+                    // the Cognito Identity Pool, the credentials will be dynamically updated.
+                    //
+                    const mqttClient = AWSIoTData.device({
+                        //
+                        // Set the AWS region we will operate in.
+                        //
+                        region: AWS.config.region,
+                        //
+                        // Use the clientId created earlier.
+                        //
+                        clientId: clientId,
+                        //
+                        // Connect via secure WebSocket
+                        //
+                        protocol: 'wss',
+                        //
+                        // Set the maximum reconnect time to 8 seconds; this is a browser application
+                        // so we don't want to leave the user waiting too long for reconnection after
+                        // re-connecting to the network/re-opening their laptop/etc...
+                        //
+                        maximumReconnectTimeMs: 8000,
+                        //
+                        // Enable console debugging information (optional)
+                        //
+                        debug: true,
+                        //
+                        // IMPORTANT: the AWS access key ID, secret key, and sesion token must be 
+                        // initialized with empty strings.
+                        //
+                        accessKeyId: '',
+                        secretKey: '',
+                        sessionToken: ''
+                    });
+        
+                    //
+                    // Attempt to authenticate to the Cognito Identity Pool.  Note that this
+                    // example only supports use of a pool which allows unauthenticated 
+                    // identities.
+                    //
+                    var cognitoIdentity = new AWS.CognitoIdentity();
+                    AWS.config.credentials.get(function(err, data) {
+                        if (!err) {
+                            console.log('retrieved identity: ' + AWS.config.credentials.identityId);
+                            var params = {
+                                IdentityId: AWS.config.credentials.identityId
+                            };
+                            cognitoIdentity.getCredentialsForIdentity(params, function(err, data) {
+                                if (!err) {
+                                    //
+                                    // Update our latest AWS credentials; the MQTT client will use these
+                                    // during its next reconnect attempt.
+                                    //
+                                    mqttClient.updateWebSocketCredentials(data.Credentials.AccessKeyId,
+                                        data.Credentials.SecretKey,
+                                        data.Credentials.SessionToken);
+                                }
+                                else {
+                                    console.log('error retrieving credentials: ' + err);
+                                    alert('error retrieving credentials: ' + err);
+                                }
+                            });
+                        }
+                        else {
+                            console.log('error retrieving identity:' + err);
+                            alert('error retrieving identity: ' + err);
+                        }
+                    });
+        
+                    //
+                    // Connect handler; update div visibility and fetch latest shadow documents.
+                    // Subscribe to lifecycle events on the first connect event.
+                    //
+                    window.mqttClientConnectHandler = function() {
+                        console.log('connect');
+                        // document.getElementById("connecting-div").style.visibility = 'hidden';
+                        // document.getElementById("message-div").style.visibility = 'visible';
+                        // document.getElementById('message-div').innerHTML = '<span></span>';
+        
+                        //
+                        // Subscribe to our current topic.
+                        //
+                        mqttClient.subscribe(kegTopic);
+                    };
+        
+                    //
+                    // Reconnect handler; update div visibility.
+                    //
+                    window.mqttClientReconnectHandler = function() {
+                        console.log('reconnect');
+                        // document.getElementById("connecting-div").style.visibility = 'visible';
+                        // document.getElementById("message-div").style.visibility = 'hidden';
+                    };
+        
+                    //
+                    // Utility function to determine if a value has been defined.
+                    //
+                    window.isUndefined = function(value) {
+                        return typeof value === 'undefined' || typeof value === null;
+                    };
+        
+                    //
+                    // Message handler for lifecycle events; create/destroy divs as clients
+                    // connect/disconnect.
+                    //
+                    // assumes payload is: {"phone":"###-###-####"}
+                    window.mqttClientMessageHandler = function(topic, payload) {
+                        chilipeppr.publish("/com-zipwhip-widget-awsmqtt/onmessage", topic, payload.toString());
+                        var payloadJson = JSON.parse(payload.toString());
+                        console.log(payloadJson.phone);
+                        console.log('message: ' + topic + ':' + payload.toString());
+                        // document.getElementById('message-div').innerHTML = '<span>' + payload.toString() + '<br>' + payloadJson.phone + '</span>';
+                    };
+        
+                    //
+                    // Install connect/reconnect event handlers.
+                    //
+                    mqttClient.on('connect', window.mqttClientConnectHandler);
+                    mqttClient.on('reconnect', window.mqttClientReconnectHandler);
+                    mqttClient.on('message', window.mqttClientMessageHandler);
+        
+                    //
+                    // Initialize divs.
+                    //
+                    document.getElementById('connecting-div').style.visibility = 'visible';
+                    document.getElementById('message-div').style.visibility = 'hidden';
+                    document.getElementById('connecting-div').innerHTML = '<p>attempting to connect to aws iot...</p>';
+        
+                }, {
+                    "./aws-configuration.js": 1,
+                    "aws-iot-device-sdk": "aws-iot-device-sdk",
+                    "aws-sdk": "aws-sdk"
+                }]
+            }, {}, [2]);
+        
+        },
         /**
          * Call this method from init to setup all the buttons when this widget
          * is first loaded. This basically attaches click events to your 
