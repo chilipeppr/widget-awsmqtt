@@ -64,7 +64,7 @@ To better understand how ChiliPeppr's subscribe() method works see amplify.js's 
           </tr>
       </thead>
       <tbody>
-      <tr valign="top"><td>/com-zipwhip-widget-awsmqttonmessage</td><td>We publish this signal when we get an incoming message from Amazon's MQTT service.</td></tr>    
+      <tr valign="top"><td>/com-zipwhip-widget-awsmqtt/onmessage</td><td>We publish this signal when we get an incoming message from Amazon's MQTT service.</td></tr>    
       </tbody>
   </table>
 

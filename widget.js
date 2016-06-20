@@ -96,7 +96,7 @@ cpdefine("inline:com-zipwhip-widget-awsmqtt", [ "chilipeppr_ready", 'AwsIot' /* 
             // Define a key:value pair here as strings to document what signals you publish.
             //'/onExampleGenerate': 'Example: Publish this signal when we go to generate gcode.'
         
-            'onmessage':'We publish this signal when we get an incoming message from Amazon\'s MQTT service.',
+            '/onmessage':'We publish this signal when we get an incoming message from Amazon\'s MQTT service.',
             
         },
         /**
